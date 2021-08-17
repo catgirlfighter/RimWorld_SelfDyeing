@@ -1,0 +1,30 @@
+1.2.2
+- fixed scrollbar... again;
+
+1.2.1
+- fixed scrollbar bug;
+
+1.2.0
+- options started to pile up, so I've made a separate settings screen that can be found from styling station;
+- added an option to disable color overriding for inactive colors;
+- added an ability to follow some simplified coloring patters. GUI isn't pirfect, but it does the thing;
+
+1.1.0
+- made styling settings global for all stations;
+- hid settings if multiple items selected;
+- added a simple two-colored option (ideo + favorite with one of them primary);
+
+1.0.4
+- put some safity nets to avoid some mod compatibility issues;
+
+1.0.3
+- temporary pawns won't change colors anymore;
+
+1.0.2
+- made so pawns wouldn't want to dye clothes when they want to change looks;
+
+1.0.1
+- readjusted dyeing rules. Some clothes have a flag that this clothing shouldn't be dyed, like artifacts, but not crafted items also have that flag, and mood buff doesn't care if clothing can be dyed or not, and from styling station you can dye anything, so I've made so pawn would prefer dyeing normal clothes, but will go further if needed;
+
+1.0.0
+- so, yeah, anyways;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Self Dyeing</name>
+	<author>avilmask</author>
+	<supportedVersions>
+		<li>1.3</li>
+	</supportedVersions>
+	<url>none</url>
+	<packageId>avilmask.SelfDyeing</packageId>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Ideology</packageId>
+			<displayName>Ideology</displayName>
+			<downloadUrl>https://store.steampowered.com/app/1392840/RimWorld__Ideology/</downloadUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld.Ideology</li>
+	</loadAfter>
+	<description>Allow pawns to paint their clothes on their own.</description>
+</ModMetaData>

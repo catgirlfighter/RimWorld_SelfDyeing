@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<CommandSelfDyeingToggleLabel>Dye Self</CommandSelfDyeingToggleLabel>
+	<CommandSelfDyeingToggleDescActive>Enabled - colonists will dye their clothes automatically.</CommandSelfDyeingToggleDescActive>
+	<CommandSelfDyeingToggleDescInactive>Disabled - colonists will not dye their clothes automatically.</CommandSelfDyeingToggleDescInactive>
+	
+	<CommandSelfDyeingIdeoToggleLabel>Ideo Color</CommandSelfDyeingIdeoToggleLabel>
+	<CommandSelfDyeingIdeoToggleDescActive>Primary - prefer ideology color.</CommandSelfDyeingIdeoToggleDescActive>
+	<CommandSelfDyeingIdeoToggleDescInactive>Secondary - prefer favorite color.</CommandSelfDyeingIdeoToggleDescInactive>
+	
+	<CommandSelfDyeingModeLabel>Coloring Mode</CommandSelfDyeingModeLabel>
+	<CommandSelfDyeingPartialLabel>Partial</CommandSelfDyeingPartialLabel>
+	<CommandSelfDyeingPartialDesc>Colonists will dye enough clothes to get a mood bonus using prefered color</CommandSelfDyeingPartialDesc>
+	
+	<CommandSelfDyeingFullLabel>Full</CommandSelfDyeingFullLabel>
+	<CommandSelfDyeingFullDesc>Colonists will dye all clothes using prefered color</CommandSelfDyeingFullDesc>
+	
+	<CommandSelfDyeingTwoColorLabel>Two Color</CommandSelfDyeingTwoColorLabel>
+	<CommandSelfDyeingTwoColorDesc>Colonists will dye all clothes with two colors, using prefered as primary</CommandSelfDyeingTwoColorDesc>
+	
+	<CommandSelfDyeingOverridingToggleLabel>Overriding</CommandSelfDyeingOverridingToggleLabel>
+	<CommandSelfDyeingOverridingToggleDescActive>Enabled - always dye apparel with inactive coloring.</CommandSelfDyeingOverridingToggleDescActive>
+	<CommandSelfDyeingOverridingToggleDescInactive>Disabled - do not dye apparel with inactive coloring if not necessary.</CommandSelfDyeingOverridingToggleDescInactive>
+	<CommandSelfDyeingOverridingNote>Most artifacts, looted apparel and some crafted apparel (ex. simple and advanced helmets) have inactive coloring (i. e. they're normally not dyed).</CommandSelfDyeingOverridingNote>
+	
+	<CommandSelfDyeingPatternsToggleLabel>Coloring Patterns</CommandSelfDyeingPatternsToggleLabel>
+	<CommandSelfDyeingPatternsToggleDescActive>Enabled - dye apparel according to coloring patterns.</CommandSelfDyeingPatternsToggleDescActive>
+	<CommandSelfDyeingPatternsToggleDescInactive>Disabled - do not use coloring patterns.</CommandSelfDyeingPatternsToggleDescInactive>
+	
+	<SelfDyeingEnabled>Enabled</SelfDyeingEnabled>
+	<SelfDyeingDisabled>Disabled</SelfDyeingDisabled>
+	
+	<CommandSelfDyeingPatternColorLabel>Pattern Color</CommandSelfDyeingPatternColorLabel>
+	<CommandSelfDyeingPatternColorPrimaryLabel>Primary</CommandSelfDyeingPatternColorPrimaryLabel>
+	<CommandSelfDyeingPatternColorSecondaryLabel>Secondary</CommandSelfDyeingPatternColorSecondaryLabel>
+	<CommandSelfDyeingPatternColorCustomLabel>Custom</CommandSelfDyeingPatternColorCustomLabel>
+	<CommandSelfDyeingPatternColorNoneLabel>None</CommandSelfDyeingPatternColorNoneLabel>
+	<CommandSelfDyeingPatternDelete>Delete Pattern</CommandSelfDyeingPatternDelete>
+	<CommandSelfDyeingAddPatternLabel>+ Add New Pattern</CommandSelfDyeingAddPatternLabel>
+	<CommandSelfDyeingBodyPartGroupLabel>Group</CommandSelfDyeingBodyPartGroupLabel>
+	<CommandSelfDyeingAddRuleLabel>+ Add Pattern Rule</CommandSelfDyeingAddRuleLabel>
+	
+	<SelfDyeingPrimary>Primary</SelfDyeingPrimary>
+	<SelfDyeingSecondary>Secondary</SelfDyeingSecondary>
+	
+	<CommandSelfDyeingOverridngAlwaysLabel>Always</CommandSelfDyeingOverridngAlwaysLabel>
+	<CommandSelfDyeingOverridingAlwaysDesc>Always - colonists will ignore that items have inactive coloring.</CommandSelfDyeingOverridingAlwaysDesc>
+	<CommandSelfDyeingOverridingRequiredLabel>When Needed</CommandSelfDyeingOverridingRequiredLabel>
+	<CommandSelfDyeingOverridingRequiredDesc>When Needed - colonists will ignote inactive coloring when it's required to get a bonus mood.</CommandSelfDyeingOverridingRequiredDesc>
+	<CommandSelfDyeingOverridingNeverLabel>Never</CommandSelfDyeingOverridingNeverLabel>
+	<CommandSelfDyeingOverridingNeverDesc>Never - colonists will not dye items with inactive coloring.</CommandSelfDyeingOverridingNeverDesc>
+</LanguageData>
