@@ -165,7 +165,7 @@ namespace SelfDyeing
 
         void Toggles(Rect rect, ref int top)
         {
-            var inrect = new Rect(rect.x, top, rect.width / 3, rect.height);
+            var inrect = new Rect(rect.x, top, rect.width / 3, pic_in);
             //
             Checkbox(inrect, "CommandSelfDyeingToggleLabel".Translate() + ": " + (active ? "SelfDyeingEnabled".Translate() : "SelfDyeingDisabled".Translate())
                 , ref active
@@ -295,7 +295,7 @@ namespace SelfDyeing
         //
         void PatternList(Rect rect, ref int top)
         {
-            var inrect = new Rect(rect.x + pic_out, rect.y, rect.width - pic_out, rect.height);
+            var inrect = new Rect(rect.x + pic_out, rect.y, rect.width - pic_out, pic_in);
             for (int patternidx = 0; patternidx < patterns.Count; patternidx++)
             {
                 if (patternidx > 0)

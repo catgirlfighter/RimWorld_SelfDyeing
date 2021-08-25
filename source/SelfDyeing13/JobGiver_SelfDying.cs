@@ -136,17 +136,6 @@ namespace SelfDyeing
             {
                 switch (comp.PaintMode)
                 {
-                    default:
-
-                        if (thoughtpresent)
-                        {
-                            pawn.style.ResetNextStyleChangeAttemptTick();
-                            return null;
-                        }
-                        primary = comp.IdeoColor ? pawn.Ideo?.ApparelColor : pawn.story?.favoriteColor;
-                        secondary = null;
-                        overriding = comp.OverrideMode == OverrideMode.Always;
-                        break;
                     case PaintMode.Full:
                         primary = comp.IdeoColor ? pawn.Ideo?.ApparelColor : pawn.story?.favoriteColor;
                         secondary = null;
@@ -156,6 +145,16 @@ namespace SelfDyeing
                         primary = thoughtpresent ? comp.IdeoColor ? pawn.story?.favoriteColor : pawn.Ideo?.ApparelColor : comp.IdeoColor ? pawn.Ideo?.ApparelColor : pawn.story?.favoriteColor;
                         secondary = thoughtpresent ? comp.IdeoColor ? pawn.Ideo?.ApparelColor : pawn.story?.favoriteColor : null;
                         overriding = comp.OverrideMode == OverrideMode.Always || comp.OverrideMode == OverrideMode.Required && !thoughtpresent;
+                        break;
+                    default:
+                        if (thoughtpresent)
+                        {
+                            pawn.style.ResetNextStyleChangeAttemptTick();
+                            return null;
+                        }
+                        primary = comp.IdeoColor ? pawn.Ideo?.ApparelColor : pawn.story?.favoriteColor;
+                        secondary = null;
+                        overriding = comp.OverrideMode == OverrideMode.Always;
                         break;
                 }
 
