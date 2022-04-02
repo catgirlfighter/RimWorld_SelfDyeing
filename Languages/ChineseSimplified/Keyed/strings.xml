@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<CommandSelfDyeingToggleLabel>自主染色</CommandSelfDyeingToggleLabel>
+	<CommandSelfDyeingToggleDescActive>开启 - 殖民者会自动染色自己的衣物。</CommandSelfDyeingToggleDescActive>
+	<CommandSelfDyeingToggleDescInactive>关闭 - 殖民者不会自动染色自己的衣物。</CommandSelfDyeingToggleDescInactive>
+	
+	<CommandSelfDyeingIdeoToggleLabel>文化颜色</CommandSelfDyeingIdeoToggleLabel>
+	<CommandSelfDyeingIdeoToggleDescActive>主要 - 优先使用文化颜色</CommandSelfDyeingIdeoToggleDescActive>
+	<CommandSelfDyeingIdeoToggleDescInactive>次要 - 优先使用个人最喜欢的颜色</CommandSelfDyeingIdeoToggleDescInactive>
+	
+	<CommandSelfDyeingModeLabel>染色模式</CommandSelfDyeingModeLabel>
+	<CommandSelfDyeingPartialLabel>部分</CommandSelfDyeingPartialLabel>
+	<CommandSelfDyeingPartialDesc>殖民者会将染色的衣物数量刚好控制在能带来心情增益的程度。</CommandSelfDyeingPartialDesc>
+	
+	<CommandSelfDyeingFullLabel>完整</CommandSelfDyeingFullLabel>
+	<CommandSelfDyeingFullDesc>殖民者会将所有衣物染成首选颜色。</CommandSelfDyeingFullDesc>
+	
+	<CommandSelfDyeingTwoColorLabel>双色</CommandSelfDyeingTwoColorLabel>
+	<CommandSelfDyeingTwoColorDesc>殖民者会将所有衣物染成主要颜色和次要颜色的双色。</CommandSelfDyeingTwoColorDesc>
+	
+	<CommandSelfDyeingOverridingToggleLabel>覆盖染色</CommandSelfDyeingOverridingToggleLabel>
+	<CommandSelfDyeingOverridingToggleDescActive>开启 - 原本默认不被染色的衣物依旧会被自动染色</CommandSelfDyeingOverridingToggleDescActive>
+	<CommandSelfDyeingOverridingToggleDescInactive>关闭 - 原本默认不被染色的衣物不会被自动染色</CommandSelfDyeingOverridingToggleDescInactive>
+	<CommandSelfDyeingOverridingNote>大多数超凡神器，掠夺得到的衣物和部分装备（比如简单头盔）在原版中默认不会被染色。</CommandSelfDyeingOverridingNote>
+	
+	<CommandSelfDyeingPatternsToggleLabel>染色方案</CommandSelfDyeingPatternsToggleLabel>
+	<CommandSelfDyeingPatternsToggleDescActive>开启 - 会根据设置的染色方案自动染色</CommandSelfDyeingPatternsToggleDescActive>
+	<CommandSelfDyeingPatternsToggleDescInactive>关闭 - 不使用染色方案</CommandSelfDyeingPatternsToggleDescInactive>
+	
+	<SelfDyeingEnabled>开启</SelfDyeingEnabled>
+	<SelfDyeingDisabled>关闭</SelfDyeingDisabled>
+	
+	<CommandSelfDyeingPatternColorLabel>方案颜色</CommandSelfDyeingPatternColorLabel>
+	<CommandSelfDyeingPatternColorPrimaryLabel>主要颜色</CommandSelfDyeingPatternColorPrimaryLabel>
+	<CommandSelfDyeingPatternColorSecondaryLabel>次要颜色</CommandSelfDyeingPatternColorSecondaryLabel>
+	<CommandSelfDyeingPatternColorCustomLabel>自定义颜色</CommandSelfDyeingPatternColorCustomLabel>
+	<CommandSelfDyeingPatternColorNoneLabel>无</CommandSelfDyeingPatternColorNoneLabel>
+	<CommandSelfDyeingPatternDelete>删除方案</CommandSelfDyeingPatternDelete>
+	<CommandSelfDyeingAddPatternLabel>增加新方案</CommandSelfDyeingAddPatternLabel>
+	<CommandSelfDyeingBodyPartGroupLabel>身体部位</CommandSelfDyeingBodyPartGroupLabel>
+	<CommandSelfDyeingAddRuleLabel>增加方案规则</CommandSelfDyeingAddRuleLabel>
+	
+	<SelfDyeingPrimary>主要</SelfDyeingPrimary>
+	<SelfDyeingSecondary>次要</SelfDyeingSecondary>
+	
+	<CommandSelfDyeingOverridngAlwaysLabel>总是</CommandSelfDyeingOverridngAlwaysLabel>
+	<CommandSelfDyeingOverridingAlwaysDesc>总是 - 殖民者会将默认不被染色的衣物一视同仁</CommandSelfDyeingOverridingAlwaysDesc>
+	<CommandSelfDyeingOverridingRequiredLabel>按需</CommandSelfDyeingOverridingRequiredLabel>
+	<CommandSelfDyeingOverridingRequiredDesc>按需 - 当需要染色才能得到心情增益时会将默认不被染色的衣物一视同仁</CommandSelfDyeingOverridingRequiredDesc>
+	<CommandSelfDyeingOverridingNeverLabel>永不</CommandSelfDyeingOverridingNeverLabel>
+	<CommandSelfDyeingOverridingNeverDesc>永不 - 默认不被染色的衣物不会被自动染色</CommandSelfDyeingOverridingNeverDesc>
+</LanguageData>
