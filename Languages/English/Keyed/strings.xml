@@ -16,7 +16,7 @@
 	<CommandSelfDyeingFullDesc>Colonists will dye all clothes using prefered color</CommandSelfDyeingFullDesc>
 	
 	<CommandSelfDyeingTwoColorLabel>Two Color</CommandSelfDyeingTwoColorLabel>
-	<CommandSelfDyeingTwoColorDesc>Colonists will dye all clothes with two colors, using prefered as primary</CommandSelfDyeingTwoColorDesc>
+	<CommandSelfDyeingTwoColorDesc>Colonists will dye all clothes with two colors, using primary as prefered</CommandSelfDyeingTwoColorDesc>
 	
 	<CommandSelfDyeingOverridingToggleLabel>Overriding</CommandSelfDyeingOverridingToggleLabel>
 	<CommandSelfDyeingOverridingToggleDescActive>Enabled - always dye apparel with inactive coloring.</CommandSelfDyeingOverridingToggleDescActive>

@@ -37,7 +37,7 @@ namespace SelfDyeing
                 if (this.allColors == null)
                 {
                     this.allColors = (from x in DefDatabase<ColorDef>.AllDefsListForReading
-                                      where !x.hairOnly
+                                      where x.colorType == ColorType.Ideo
                                       select x into ic
                                       select ic.color).ToList<Color>();
                     //if (this.pawn.Ideo != null && !this.allColors.Any((Color c) => this.pawn.Ideo.ApparelColor.IndistinguishableFrom(c)))
@@ -205,15 +205,15 @@ namespace SelfDyeing
                         list.Add(new FloatMenuOption("CommandSelfDyeingPartialLabel".Translate(), delegate ()
                         {
                             mode = PaintMode.Partial;
-                        }, null, Color.white));
+                        }, (Thing)null, Color.white));
                         list.Add(new FloatMenuOption("CommandSelfDyeingFullLabel".Translate(), delegate ()
                         {
                             mode = PaintMode.Full;
-                        }, null, Color.white));
+                        }, (Thing)null, Color.white));
                         list.Add(new FloatMenuOption("CommandSelfDyeingTwoColorLabel".Translate(), delegate ()
                         {
                             mode = PaintMode.TwoColor;
-                        }, null, Color.white));
+                        }, (Thing)null, Color.white));
                         Find.WindowStack.Add(new FloatMenu(list));
                     };
                 //
@@ -253,15 +253,15 @@ namespace SelfDyeing
                     list.Add(new FloatMenuOption("CommandSelfDyeingOverridngAlwaysLabel".Translate(), delegate ()
                     {
                         overrideMode = OverrideMode.Always;
-                    }, null, Color.white));
+                    }, (Thing)null, Color.white));
                     list.Add(new FloatMenuOption("CommandSelfDyeingOverridingRequiredLabel".Translate(), delegate ()
                     {
                         overrideMode = OverrideMode.Required;
-                    }, null, Color.white));
+                    }, (Thing)null, Color.white));
                     list.Add(new FloatMenuOption("CommandSelfDyeingOverridingNeverLabel".Translate(), delegate ()
                     {
                         overrideMode = OverrideMode.Never;
-                    }, null, Color.white));
+                    }, (Thing)null, Color.white));
                     Find.WindowStack.Add(new FloatMenu(list));
                 };
                 //Checkbox(inrect, "CommandSelfDyeingOverridingToggleLabel".Translate() + ": " + (overriding ? "SelfDyeingEnabled".Translate() : "SelfDyeingDisabled".Translate())
@@ -345,22 +345,22 @@ namespace SelfDyeing
                     {
                         pattern.color = null;
                         pattern.coloringMode = ColoringMode.Primary;
-                    }, null, Color.white));
+                    }, (Thing)null, Color.white));
                     list.Add(new FloatMenuOption("CommandSelfDyeingPatternColorSecondaryLabel".Translate(), delegate ()
                     {
                         pattern.color = null;
                         pattern.coloringMode = ColoringMode.Secondary;
-                    }, null, Color.white));
+                    }, (Thing)null, Color.white));
                     list.Add(new FloatMenuOption("CommandSelfDyeingPatternColorCustomLabel".Translate(), delegate ()
                     {
                         pattern.color = AllColors[0];
                         pattern.coloringMode = ColoringMode.None;
-                    }, null, Color.white));
+                    }, (Thing)null, Color.white));
                     list.Add(new FloatMenuOption("CommandSelfDyeingPatternColorNoneLabel".Translate(), delegate ()
                     {
                         pattern.color = null;
                         pattern.coloringMode = ColoringMode.None;
-                    }, null, Color.white));
+                    }, (Thing)null, Color.white));
                     Find.WindowStack.Add(new FloatMenu(list));
                 }
                 // delete button
@@ -376,7 +376,7 @@ namespace SelfDyeing
                     int colorLines = (1 + AllColors.Count / ((int)inrect.width / col_pic_in));
                     top += col_pic_sep;
                     Rect cpRect = new Rect(inrect.x, top, inrect.width, colorLines * col_pic_in + colorLines * 2);
-                    if (Widgets.ColorSelector(cpRect, ref tmp, allColors))
+                    if (Widgets.ColorSelector(cpRect, ref tmp, allColors, out var h))
                     {
                         pattern.color = tmp;
                     }
@@ -428,19 +428,19 @@ namespace SelfDyeing
                         list.Add(new FloatMenuOption("Outfit".Translate() + ": " + outfit.label, delegate ()
                         {
                             pattern.Outfits.Add(outfit);
-                        }, null, Color.white));
+                        }, (Thing)null, Color.white));
                     //
                     foreach(var layer in DefDatabase<ApparelLayerDef>.AllDefsListForReading)
                         list.Add(new FloatMenuOption("Layer".Translate() + ": " + layer.label.CapitalizeFirst(), delegate ()
                         {
                             pattern.Layers.Add(layer);
-                        }, null, Color.white));
+                        }, (Thing)null, Color.white));
                     //
                     foreach (var group in DefDatabase<BodyPartGroupDef>.AllDefsListForReading.Where(x => x.listOrder > 0))
                         list.Add(new FloatMenuOption("CommandSelfDyeingBodyPartGroupLabel".Translate() + ": " + group.label.CapitalizeFirst(), delegate ()
                         {
                             pattern.BodyPartGroups.Add(group);
-                        }, null, Color.white));
+                        }, (Thing)null, Color.white));
                     Find.WindowStack.Add(new FloatMenu(list));
                 };
                 /*p1*/
