@@ -132,6 +132,7 @@ namespace SelfDyeing
             //
             List<Apparel> applist = new List<Apparel>(pawn.apparel.WornApparel);
             Apparel apparel = getToDye(ref applist, pawn, thoughtpresent, comp, out primary);
+            //Log.Message($"got the thought = {thoughtpresent}, get to dye = {apparel}");
             if (apparel == null)
             {
                 switch (comp.PaintMode)
@@ -154,13 +155,15 @@ namespace SelfDyeing
                         }
                         primary = comp.IdeoColor ? pawn.Ideo?.ApparelColor : pawn.story?.favoriteColor;
                         secondary = null;
-                        overriding = comp.OverrideMode == OverrideMode.Always;
+                        overriding = comp.OverrideMode == OverrideMode.Always || comp.OverrideMode == OverrideMode.Required && !thoughtpresent;
                         break;
                 }
 
+                //Log.Message($"applist = {applist.Count}, {primary}, {secondary}, {overriding}");
                 apparel = getToDye(applist, primary, secondary, overriding);
             }
             //
+            //Log.Message($"get to dye try again = {apparel}");
             if (apparel == null)
             {
                 pawn.style.ResetNextStyleChangeAttemptTick();
