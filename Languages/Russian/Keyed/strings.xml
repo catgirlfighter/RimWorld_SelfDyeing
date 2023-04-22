@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<CommandSelfDyeingToggleLabel>Покраситься</CommandSelfDyeingToggleLabel>
+	<CommandSelfDyeingToggleDescActive>Включено — поселенцы будут окрашивать свою одежду самостоятельно.</CommandSelfDyeingToggleDescActive>
+	<CommandSelfDyeingToggleDescInactive>Отключено — поселенцы не будут окрашивать свою одежду самостоятельно.</CommandSelfDyeingToggleDescInactive>
+	
+	<CommandSelfDyeingIdeoToggleLabel>Цвет идеолигии</CommandSelfDyeingIdeoToggleLabel>
+	<CommandSelfDyeingIdeoToggleDescActive>Основной — отдавать предпочтение цветам идеолигии.</CommandSelfDyeingIdeoToggleDescActive>
+	<CommandSelfDyeingIdeoToggleDescInactive>Второстепенный — отдавать предпочтение любимым цветам.</CommandSelfDyeingIdeoToggleDescInactive>
+	
+	<CommandSelfDyeingModeLabel>Режим окрашивания</CommandSelfDyeingModeLabel>
+	<CommandSelfDyeingPartialLabel>Неполный</CommandSelfDyeingPartialLabel>
+	<CommandSelfDyeingPartialDesc>Поселенцы будут окрашивать предпочтительным цветом столько одежды, сколько нужно для улучшения настроения.</CommandSelfDyeingPartialDesc>
+	
+	<CommandSelfDyeingFullLabel>Полный</CommandSelfDyeingFullLabel>
+	<CommandSelfDyeingFullDesc>Поселенцы будут окрашивать предпочтительным цветом всю свою одежду</CommandSelfDyeingFullDesc>
+	
+	<CommandSelfDyeingTwoColorLabel>Двухцветный</CommandSelfDyeingTwoColorLabel>
+	<CommandSelfDyeingTwoColorDesc>Поселенцы будут окрашивать двумя цветами всю свою одежду, используя предпочтительный цвет в качестве основного.</CommandSelfDyeingTwoColorDesc>
+	
+	<CommandSelfDyeingOverridingToggleLabel>Перекрашивание</CommandSelfDyeingOverridingToggleLabel>
+	<CommandSelfDyeingOverridingToggleDescActive>Включено — всегда окрашивать одежду с неактивной окраской.</CommandSelfDyeingOverridingToggleDescActive>
+	<CommandSelfDyeingOverridingToggleDescInactive>Отключено — не окрашивать одежду с неактивной окраской, если в этом нет необходимости.</CommandSelfDyeingOverridingToggleDescInactive>
+	<CommandSelfDyeingOverridingNote>Большинство артефактов, найденной и некоторой созданной одежды (например, «простой шлем» или «бронешлем») имеют неактивную окраску (то есть не окрашены).</CommandSelfDyeingOverridingNote>
+	
+	<CommandSelfDyeingPatternsToggleLabel>Шаблоны окрашивания</CommandSelfDyeingPatternsToggleLabel>
+	<CommandSelfDyeingPatternsToggleDescActive>Включено — окрашивать одежду согласно шаблонам окрашивания.</CommandSelfDyeingPatternsToggleDescActive>
+	<CommandSelfDyeingPatternsToggleDescInactive>Отключено — не использовать шаблоны окрашивания.</CommandSelfDyeingPatternsToggleDescInactive>
+	
+	<SelfDyeingEnabled>Включено</SelfDyeingEnabled>
+	<SelfDyeingDisabled>Отключено</SelfDyeingDisabled>
+	
+	<CommandSelfDyeingPatternColorLabel>Цвет шаблона</CommandSelfDyeingPatternColorLabel>
+	<CommandSelfDyeingPatternColorPrimaryLabel>Основной</CommandSelfDyeingPatternColorPrimaryLabel>
+	<CommandSelfDyeingPatternColorSecondaryLabel>Второстепенный</CommandSelfDyeingPatternColorSecondaryLabel>
+	<CommandSelfDyeingPatternColorCustomLabel>Пользовательский</CommandSelfDyeingPatternColorCustomLabel>
+	<CommandSelfDyeingPatternColorNoneLabel>Нет</CommandSelfDyeingPatternColorNoneLabel>
+	<CommandSelfDyeingPatternDelete>Удалить шаблон</CommandSelfDyeingPatternDelete>
+	<CommandSelfDyeingAddPatternLabel>+ Добавить шаблон</CommandSelfDyeingAddPatternLabel>
+	<CommandSelfDyeingBodyPartGroupLabel>Группа</CommandSelfDyeingBodyPartGroupLabel>
+	<CommandSelfDyeingAddRuleLabel>+ Добавить правило шаблона</CommandSelfDyeingAddRuleLabel>
+	
+	<SelfDyeingPrimary>Основной</SelfDyeingPrimary>
+	<SelfDyeingSecondary>Второстепенный</SelfDyeingSecondary>
+	
+	<CommandSelfDyeingOverridngAlwaysLabel>Всегда</CommandSelfDyeingOverridngAlwaysLabel>
+	<CommandSelfDyeingOverridingAlwaysDesc>Всегда — поселенцы будут игнорировать факт присутствия у одежды неактивной окраски.</CommandSelfDyeingOverridingAlwaysDesc>
+	<CommandSelfDyeingOverridingRequiredLabel>При необходимости</CommandSelfDyeingOverridingRequiredLabel>
+	<CommandSelfDyeingOverridingRequiredDesc>При необходимости — поселенцы будут игнорировать факт присутствия у одежды неактивной окраски, только если это нужно для улучшения настроения.</CommandSelfDyeingOverridingRequiredDesc>
+	<CommandSelfDyeingOverridingNeverLabel>Никогда</CommandSelfDyeingOverridingNeverLabel>
+	<CommandSelfDyeingOverridingNeverDesc>Никогда — поселенцы не будут окрашивать одежду, имеющую неактивную окраску.</CommandSelfDyeingOverridingNeverDesc>
+
+</LanguageData>
