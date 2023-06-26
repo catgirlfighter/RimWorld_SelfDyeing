@@ -4,9 +4,9 @@
 	<CommandSelfDyeingToggleDescActive>開啟 - 殖民者會自動染色自己的衣物。</CommandSelfDyeingToggleDescActive>
 	<CommandSelfDyeingToggleDescInactive>關閉 - 殖民者不會自動染色自己的衣物。</CommandSelfDyeingToggleDescInactive>
 	
-	<CommandSelfDyeingIdeoToggleLabel>文化顏色</CommandSelfDyeingIdeoToggleLabel>
-	<CommandSelfDyeingIdeoToggleDescActive>主要 - 優先使用文化顏色</CommandSelfDyeingIdeoToggleDescActive>
-	<CommandSelfDyeingIdeoToggleDescInactive>次要 - 優先使用個人最喜歡的顏色</CommandSelfDyeingIdeoToggleDescInactive>
+	<CommandSelfDyeingIdeoToggleLabel>Prefer</CommandSelfDyeingIdeoToggleLabel>
+	<CommandSelfDyeingIdeoToggleDescActive>Prefer ideology color. Favorite color is secondary.</CommandSelfDyeingIdeoToggleDescActive>
+	<CommandSelfDyeingIdeoToggleDescInactive>Prefer favorite color. Ideo color is secondary.</CommandSelfDyeingIdeoToggleDescInactive>
 	
 	<CommandSelfDyeingModeLabel>染色模式</CommandSelfDyeingModeLabel>
 	<CommandSelfDyeingPartialLabel>部分</CommandSelfDyeingPartialLabel>
@@ -31,17 +31,26 @@
 	<SelfDyeingDisabled>關閉</SelfDyeingDisabled>
 	
 	<CommandSelfDyeingPatternColorLabel>方案顏色</CommandSelfDyeingPatternColorLabel>
-	<CommandSelfDyeingPatternColorPrimaryLabel>主要顏色</CommandSelfDyeingPatternColorPrimaryLabel>
-	<CommandSelfDyeingPatternColorSecondaryLabel>次要顏色</CommandSelfDyeingPatternColorSecondaryLabel>
+	<CommandSelfDyeingPatternColorPrimaryLabel>Preferred color</CommandSelfDyeingPatternColorPrimaryLabel>
+	<CommandSelfDyeingPatternColorSecondaryLabel>Secondary color</CommandSelfDyeingPatternColorSecondaryLabel>
 	<CommandSelfDyeingPatternColorCustomLabel>自定義顏色</CommandSelfDyeingPatternColorCustomLabel>
-	<CommandSelfDyeingPatternColorNoneLabel>無</CommandSelfDyeingPatternColorNoneLabel>
+	<CommandSelfDyeingPatternColorNoneLabel>Do not dye</CommandSelfDyeingPatternColorNoneLabel>
 	<CommandSelfDyeingPatternDelete>刪除方案</CommandSelfDyeingPatternDelete>
 	<CommandSelfDyeingAddPatternLabel>增加新方案</CommandSelfDyeingAddPatternLabel>
-	<CommandSelfDyeingBodyPartGroupLabel>身體部位</CommandSelfDyeingBodyPartGroupLabel>
+	<SelfDyeingPawnOutfitLabel>Colonist uses Outfilt</SelfDyeingPawnOutfitLabel>
+	<SelfDyeingApparelOutfitLabel>Apparel is part of Outfilt</SelfDyeingApparelOutfitLabel>
+	<SelfDyeingApparelLayerLabel>Apparel has Layer</SelfDyeingApparelLayerLabel>
+	<SelfDyeingApparelBodyPartLabel>Apparel has Body Part</SelfDyeingApparelBodyPartLabel>
 	<CommandSelfDyeingAddRuleLabel>增加方案規則</CommandSelfDyeingAddRuleLabel>
 	
-	<SelfDyeingPrimary>主要</SelfDyeingPrimary>
-	<SelfDyeingSecondary>次要</SelfDyeingSecondary>
+	<SelfDyeingPawnOutfitShort>C. Outfilt</SelfDyeingPawnOutfitShort>
+	<SelfDyeingApparelOutfitShort>A. Outfilt</SelfDyeingApparelOutfitShort>
+	<SelfDyeingApparelLayerShort>Layer</SelfDyeingApparelLayerShort>
+	<SelfDyeingApparelBodyPartShort>Body Part</SelfDyeingApparelBodyPartShort>
+	<SelfDyeingListItemLabel>{0}: {1}</SelfDyeingListItemLabel>
+	
+	<SelfDyeingPrimary>Ideo Color</SelfDyeingPrimary>
+	<SelfDyeingSecondary>Favorite Color</SelfDyeingSecondary>
 	
 	<CommandSelfDyeingOverridngAlwaysLabel>總是</CommandSelfDyeingOverridngAlwaysLabel>
 	<CommandSelfDyeingOverridingAlwaysDesc>總是 - 殖民者會將默認不被染色的衣物一視同仁</CommandSelfDyeingOverridingAlwaysDesc>

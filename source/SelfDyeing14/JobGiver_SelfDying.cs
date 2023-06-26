@@ -64,7 +64,7 @@ namespace SelfDyeing
             {
                 foreach (var pattern in comp.Patterns)
                 {
-                    if (pattern.ApparelOverlap(pawn, applist[i]))
+                    if (pattern.ApparelOverlap(pawn, applist[i]) || pattern.coloringMode == ColoringMode.None && pattern.Empty)
                     {
                         if (pattern.color == null)
                             switch (pattern.coloringMode)
@@ -125,6 +125,7 @@ namespace SelfDyeing
             Color? primary;
             Color? secondary;
             bool overriding;
+
             bool thoughtpresent;
             List <Thought> activeThoughts = new List<Thought>();
             pawn.needs.mood.thoughts.situational.AppendMoodThoughts(activeThoughts);
@@ -132,7 +133,6 @@ namespace SelfDyeing
             //
             List<Apparel> applist = new List<Apparel>(pawn.apparel.WornApparel);
             Apparel apparel = getToDye(ref applist, pawn, thoughtpresent, comp, out primary);
-            //Log.Message($"got the thought = {thoughtpresent}, get to dye = {apparel}");
             if (apparel == null)
             {
                 switch (comp.PaintMode)

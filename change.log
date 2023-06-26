@@ -1,3 +1,13 @@
+1.4.1
+- fixed an issue with pawns ignoring rules and painting items they shouldn't when custom color is used;
+
+1.4.0
+- made so you can drag patterns instead of clicking up and down buttons;
+- changed drop down menus to reduce clutter;
+- added an option to use apparel from selected outfit for dyeing;
+- made it possible to use Patter Color: None (Do not dye) without rules, to prevent pawns from dyeing outside of patterns;
+- sorry about broken translations;
+
 other
 - added Russian by @Reiquard. Thanks.
 

@@ -5,9 +5,9 @@
 	<CommandSelfDyeingToggleDescActive>Включено — поселенцы будут окрашивать свою одежду самостоятельно.</CommandSelfDyeingToggleDescActive>
 	<CommandSelfDyeingToggleDescInactive>Отключено — поселенцы не будут окрашивать свою одежду самостоятельно.</CommandSelfDyeingToggleDescInactive>
 	
-	<CommandSelfDyeingIdeoToggleLabel>Цвет идеолигии</CommandSelfDyeingIdeoToggleLabel>
-	<CommandSelfDyeingIdeoToggleDescActive>Основной — отдавать предпочтение цветам идеолигии.</CommandSelfDyeingIdeoToggleDescActive>
-	<CommandSelfDyeingIdeoToggleDescInactive>Второстепенный — отдавать предпочтение любимым цветам.</CommandSelfDyeingIdeoToggleDescInactive>
+	<CommandSelfDyeingIdeoToggleLabel>Prefer</CommandSelfDyeingIdeoToggleLabel>
+	<CommandSelfDyeingIdeoToggleDescActive>Prefer ideology color. Favorite color is secondary.</CommandSelfDyeingIdeoToggleDescActive>
+	<CommandSelfDyeingIdeoToggleDescInactive>Prefer favorite color. Ideo color is secondary.</CommandSelfDyeingIdeoToggleDescInactive>
 	
 	<CommandSelfDyeingModeLabel>Режим окрашивания</CommandSelfDyeingModeLabel>
 	<CommandSelfDyeingPartialLabel>Неполный</CommandSelfDyeingPartialLabel>
@@ -32,17 +32,26 @@
 	<SelfDyeingDisabled>Отключено</SelfDyeingDisabled>
 	
 	<CommandSelfDyeingPatternColorLabel>Цвет шаблона</CommandSelfDyeingPatternColorLabel>
-	<CommandSelfDyeingPatternColorPrimaryLabel>Основной</CommandSelfDyeingPatternColorPrimaryLabel>
-	<CommandSelfDyeingPatternColorSecondaryLabel>Второстепенный</CommandSelfDyeingPatternColorSecondaryLabel>
+	<CommandSelfDyeingPatternColorPrimaryLabel>Preferred color</CommandSelfDyeingPatternColorPrimaryLabel>
+	<CommandSelfDyeingPatternColorSecondaryLabel>Secondary color</CommandSelfDyeingPatternColorSecondaryLabel>
 	<CommandSelfDyeingPatternColorCustomLabel>Пользовательский</CommandSelfDyeingPatternColorCustomLabel>
-	<CommandSelfDyeingPatternColorNoneLabel>Нет</CommandSelfDyeingPatternColorNoneLabel>
+	<CommandSelfDyeingPatternColorNoneLabel>Do not dye</CommandSelfDyeingPatternColorNoneLabel>
 	<CommandSelfDyeingPatternDelete>Удалить шаблон</CommandSelfDyeingPatternDelete>
 	<CommandSelfDyeingAddPatternLabel>+ Добавить шаблон</CommandSelfDyeingAddPatternLabel>
-	<CommandSelfDyeingBodyPartGroupLabel>Группа</CommandSelfDyeingBodyPartGroupLabel>
+	<SelfDyeingPawnOutfitLabel>Colonist uses Outfilt</SelfDyeingPawnOutfitLabel>
+	<SelfDyeingApparelOutfitLabel>Apparel is part of Outfilt</SelfDyeingApparelOutfitLabel>
+	<SelfDyeingApparelLayerLabel>Apparel has Layer</SelfDyeingApparelLayerLabel>
+	<SelfDyeingApparelBodyPartLabel>Apparel has Body Part</SelfDyeingApparelBodyPartLabel>
 	<CommandSelfDyeingAddRuleLabel>+ Добавить правило шаблона</CommandSelfDyeingAddRuleLabel>
 	
-	<SelfDyeingPrimary>Основной</SelfDyeingPrimary>
-	<SelfDyeingSecondary>Второстепенный</SelfDyeingSecondary>
+	<SelfDyeingPawnOutfitShort>C. Outfilt</SelfDyeingPawnOutfitShort>
+	<SelfDyeingApparelOutfitShort>A. Outfilt</SelfDyeingApparelOutfitShort>
+	<SelfDyeingApparelLayerShort>Layer</SelfDyeingApparelLayerShort>
+	<SelfDyeingApparelBodyPartShort>Body Part</SelfDyeingApparelBodyPartShort>
+	<SelfDyeingListItemLabel>{0}: {1}</SelfDyeingListItemLabel>
+	
+	<SelfDyeingPrimary>Ideo Color</SelfDyeingPrimary>
+	<SelfDyeingSecondary>Favorite Color</SelfDyeingSecondary>
 	
 	<CommandSelfDyeingOverridngAlwaysLabel>Всегда</CommandSelfDyeingOverridngAlwaysLabel>
 	<CommandSelfDyeingOverridingAlwaysDesc>Всегда — поселенцы будут игнорировать факт присутствия у одежды неактивной окраски.</CommandSelfDyeingOverridingAlwaysDesc>

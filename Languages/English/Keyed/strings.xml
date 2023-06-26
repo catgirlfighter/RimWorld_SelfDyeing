@@ -4,9 +4,9 @@
 	<CommandSelfDyeingToggleDescActive>Enabled - colonists will dye their clothes automatically.</CommandSelfDyeingToggleDescActive>
 	<CommandSelfDyeingToggleDescInactive>Disabled - colonists will not dye their clothes automatically.</CommandSelfDyeingToggleDescInactive>
 	
-	<CommandSelfDyeingIdeoToggleLabel>Ideo Color</CommandSelfDyeingIdeoToggleLabel>
-	<CommandSelfDyeingIdeoToggleDescActive>Primary - prefer ideology color.</CommandSelfDyeingIdeoToggleDescActive>
-	<CommandSelfDyeingIdeoToggleDescInactive>Secondary - prefer favorite color.</CommandSelfDyeingIdeoToggleDescInactive>
+	<CommandSelfDyeingIdeoToggleLabel>Prefer</CommandSelfDyeingIdeoToggleLabel>
+	<CommandSelfDyeingIdeoToggleDescActive>Prefer ideology color. Favorite color is secondary.</CommandSelfDyeingIdeoToggleDescActive>
+	<CommandSelfDyeingIdeoToggleDescInactive>Prefer favorite color. Ideo color is secondary.</CommandSelfDyeingIdeoToggleDescInactive>
 	
 	<CommandSelfDyeingModeLabel>Coloring Mode</CommandSelfDyeingModeLabel>
 	<CommandSelfDyeingPartialLabel>Partial</CommandSelfDyeingPartialLabel>
@@ -31,17 +31,26 @@
 	<SelfDyeingDisabled>Disabled</SelfDyeingDisabled>
 	
 	<CommandSelfDyeingPatternColorLabel>Pattern Color</CommandSelfDyeingPatternColorLabel>
-	<CommandSelfDyeingPatternColorPrimaryLabel>Primary</CommandSelfDyeingPatternColorPrimaryLabel>
-	<CommandSelfDyeingPatternColorSecondaryLabel>Secondary</CommandSelfDyeingPatternColorSecondaryLabel>
+	<CommandSelfDyeingPatternColorPrimaryLabel>Preferred color</CommandSelfDyeingPatternColorPrimaryLabel>
+	<CommandSelfDyeingPatternColorSecondaryLabel>Secondary color</CommandSelfDyeingPatternColorSecondaryLabel>
 	<CommandSelfDyeingPatternColorCustomLabel>Custom</CommandSelfDyeingPatternColorCustomLabel>
-	<CommandSelfDyeingPatternColorNoneLabel>None</CommandSelfDyeingPatternColorNoneLabel>
+	<CommandSelfDyeingPatternColorNoneLabel>Do not dye</CommandSelfDyeingPatternColorNoneLabel>
 	<CommandSelfDyeingPatternDelete>Delete Pattern</CommandSelfDyeingPatternDelete>
 	<CommandSelfDyeingAddPatternLabel>+ Add New Pattern</CommandSelfDyeingAddPatternLabel>
-	<CommandSelfDyeingBodyPartGroupLabel>Group</CommandSelfDyeingBodyPartGroupLabel>
+	<SelfDyeingPawnOutfitLabel>Colonist uses Outfilt</SelfDyeingPawnOutfitLabel>
+	<SelfDyeingApparelOutfitLabel>Apparel is part of Outfilt</SelfDyeingApparelOutfitLabel>
+	<SelfDyeingApparelLayerLabel>Apparel has Layer</SelfDyeingApparelLayerLabel>
+	<SelfDyeingApparelBodyPartLabel>Apparel has Body Part</SelfDyeingApparelBodyPartLabel>
 	<CommandSelfDyeingAddRuleLabel>+ Add Pattern Rule</CommandSelfDyeingAddRuleLabel>
 	
-	<SelfDyeingPrimary>Primary</SelfDyeingPrimary>
-	<SelfDyeingSecondary>Secondary</SelfDyeingSecondary>
+	<SelfDyeingPawnOutfitShort>C. Outfilt</SelfDyeingPawnOutfitShort>
+	<SelfDyeingApparelOutfitShort>A. Outfilt</SelfDyeingApparelOutfitShort>
+	<SelfDyeingApparelLayerShort>Layer</SelfDyeingApparelLayerShort>
+	<SelfDyeingApparelBodyPartShort>Body Part</SelfDyeingApparelBodyPartShort>
+	<SelfDyeingListItemLabel>{0}: {1}</SelfDyeingListItemLabel>
+	
+	<SelfDyeingPrimary>Ideo Color</SelfDyeingPrimary>
+	<SelfDyeingSecondary>Favorite Color</SelfDyeingSecondary>
 	
 	<CommandSelfDyeingOverridngAlwaysLabel>Always</CommandSelfDyeingOverridngAlwaysLabel>
 	<CommandSelfDyeingOverridingAlwaysDesc>Always - colonists will ignore that items have inactive coloring.</CommandSelfDyeingOverridingAlwaysDesc>

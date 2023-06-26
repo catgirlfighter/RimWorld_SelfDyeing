@@ -30,6 +30,7 @@ namespace SelfDyeing
     public class ColorPattern: IExposable
     {
         public List<Outfit> Outfits = new List<Outfit>();
+        public List<Outfit> AOutfits = new List<Outfit>();
         public List<ApparelLayerDef> Layers = new List<ApparelLayerDef>();
         public List<BodyPartGroupDef> BodyPartGroups = new List<BodyPartGroupDef>();
         //public bool usePrimary = true;
@@ -41,6 +42,7 @@ namespace SelfDyeing
             Scribe_Values.Look(ref coloringMode, "coloringMode", ColoringMode.Primary);
             Scribe_Values.Look(ref color, "color", null);
             Scribe_Collections.Look(ref Outfits, "outfits", LookMode.Reference);
+            Scribe_Collections.Look(ref AOutfits, "aoutfits", LookMode.Reference);
             Scribe_Collections.Look(ref Layers, "layers", LookMode.Def);
             Scribe_Collections.Look(ref BodyPartGroups, "groups", LookMode.Def);
 
@@ -54,13 +56,14 @@ namespace SelfDyeing
                 if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 if (Outfits == null) Outfits = new List<Outfit>();
+                if (AOutfits == null) AOutfits = new List<Outfit>();
                 if (Layers == null) Layers = new List<ApparelLayerDef>();
                 if (BodyPartGroups == null) BodyPartGroups = new List<BodyPartGroupDef>();
             }
         }
 
-        public bool Empty { get => Outfits.NullOrEmpty() && Layers.NullOrEmpty() && BodyPartGroups.NullOrEmpty(); }
-        public int Count { get => Outfits.Count() + Layers.Count() + BodyPartGroups.Count(); }
+        public bool Empty { get => Outfits.NullOrEmpty() && AOutfits.NullOrEmpty() && Layers.NullOrEmpty() && BodyPartGroups.NullOrEmpty(); }
+        public int Count { get => Outfits.Count() + AOutfits.Count() + Layers.Count() + BodyPartGroups.Count(); }
 
         public void CopyTo(ColorPattern dst)
         {
@@ -68,6 +71,8 @@ namespace SelfDyeing
             dst.coloringMode = coloringMode;
             dst.Outfits.Clear();
             dst.Outfits.AddRange(Outfits);
+            dst.AOutfits.Clear();
+            dst.AOutfits.AddRange(AOutfits);
             dst.Layers.Clear();
             dst.Layers.AddRange(Layers);
             dst.BodyPartGroups.Clear();
@@ -76,9 +81,13 @@ namespace SelfDyeing
 
         public bool ApparelOverlap(Pawn pawn, Apparel apparel)
         {
+            //Log.Message($"outfits={Outfits.Count}, aoutfits={AOutfits.Count}, layers={Layers.Count}, bpgs={BodyPartGroups.Count}");
             if (Empty) return false;
             //
             if (!Outfits.NullOrEmpty() && (pawn.outfits?.CurrentOutfit == null || !Outfits.Contains(pawn.outfits.CurrentOutfit)))
+                return false;
+
+            if (!AOutfits.NullOrEmpty() && AOutfits.FirstOrDefault(o => o.filter.Allows(apparel)) == null)
                 return false;
 
             if (!Layers.NullOrEmpty())

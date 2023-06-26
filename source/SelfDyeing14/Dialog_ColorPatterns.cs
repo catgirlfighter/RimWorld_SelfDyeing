@@ -6,9 +6,15 @@ using Verse;
 using Verse.AI;
 using Verse.Sound;
 using RimWorld;
+using System.Text.RegularExpressions;
 
 namespace SelfDyeing
 {
+    [StaticConstructorOnStartup]
+    public class Dialog_ColorPatterns_Tex
+    {
+        public static readonly Texture2D DragButton = ContentFinder<Texture2D>.Get("UI/Icons/Drag");
+    }
     public class Dialog_ColorPatterns : Window
     {
         const int pic_in = 24;
@@ -17,6 +23,7 @@ namespace SelfDyeing
         const int b_pre_line = 1;
         const int b_line = 3;
         const int col_pic_sep = 1;
+        int listId = -1;
 
         private GameComponent_SelfDyeing comp = null;
 
@@ -34,23 +41,15 @@ namespace SelfDyeing
         {
             get
             {
-                if (this.allColors == null)
+                if (allColors == null)
                 {
-                    this.allColors = (from x in DefDatabase<ColorDef>.AllDefsListForReading
+                    allColors = (from x in DefDatabase<ColorDef>.AllDefsListForReading
                                       where x.colorType == ColorType.Ideo
                                       select x into ic
-                                      select ic.color).ToList<Color>();
-                    //if (this.pawn.Ideo != null && !this.allColors.Any((Color c) => this.pawn.Ideo.ApparelColor.IndistinguishableFrom(c)))
-                    //{
-                    //    this.allColors.Add(this.pawn.Ideo.ApparelColor);
-                    //}
-                    //if (this.pawn.story != null && this.pawn.story.favoriteColor != null && !this.allColors.Any((Color c) => this.pawn.story.favoriteColor.Value.IndistinguishableFrom(c)))
-                    //{
-                    //    this.allColors.Add(this.pawn.story.favoriteColor.Value);
-                    //}
-                    this.allColors.SortByColor((Color x) => x);
+                                      select ic.color).ToList();
+                    allColors.SortByColor((Color x) => x);
                 }
-                return this.allColors;
+                return allColors;
             }
         }
 
@@ -128,7 +127,6 @@ namespace SelfDyeing
         {
             var inrect = new Rect(rect.x, rect.y, rect.width, pic_in);
             if (Mouse.IsOver(inrect)) Widgets.DrawHighlight(inrect);
-            //TooltipHandler.TipRegion(inrect, tooltip);
             TextAnchor oldanchor = Text.Anchor;
             Text.Anchor = TextAnchor.MiddleRight;
             Widgets.Label(new Rect(inrect.x, inrect.y, inrect.width - pic_out, inrect.height), label);
@@ -155,7 +153,7 @@ namespace SelfDyeing
             CheckboxDraw(rect.x, rect.y, checkOn);
         }
 
-        private Vector2 scrollbar = default(Vector2);
+        private Vector2 scrollbar = default;
         private bool active;
         private bool ideo;
         private PaintMode mode;
@@ -200,22 +198,28 @@ namespace SelfDyeing
                 }
                 //
                 if (ActionLabel(inrect, "CommandSelfDyeingModeLabel".Translate() + ": " + label, desc))
+                {
+                    if (ReorderableWidget.Dragging) return;
+                    List<FloatMenuOption> list = new List<FloatMenuOption>
                     {
-                        List<FloatMenuOption> list = new List<FloatMenuOption>();
-                        list.Add(new FloatMenuOption("CommandSelfDyeingPartialLabel".Translate(), delegate ()
+                        new FloatMenuOption("CommandSelfDyeingPartialLabel".Translate(), delegate ()
                         {
+                            if (ReorderableWidget.Dragging) return;
                             mode = PaintMode.Partial;
-                        }, (Thing)null, Color.white));
-                        list.Add(new FloatMenuOption("CommandSelfDyeingFullLabel".Translate(), delegate ()
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingFullLabel".Translate(), delegate ()
                         {
+                            if (ReorderableWidget.Dragging) return;
                             mode = PaintMode.Full;
-                        }, (Thing)null, Color.white));
-                        list.Add(new FloatMenuOption("CommandSelfDyeingTwoColorLabel".Translate(), delegate ()
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingTwoColorLabel".Translate(), delegate ()
                         {
+                            if (ReorderableWidget.Dragging) return;
                             mode = PaintMode.TwoColor;
-                        }, (Thing)null, Color.white));
-                        Find.WindowStack.Add(new FloatMenu(list));
+                        }, (Thing)null, Color.white)
                     };
+                    Find.WindowStack.Add(new FloatMenu(list));
+                };
                 //
                 top += pic_in;
                 inrect.x = rect.x;
@@ -249,26 +253,27 @@ namespace SelfDyeing
 
                 if (ActionLabel(inrect, "CommandSelfDyeingOverridingToggleLabel".Translate() + ": " + label, desc))
                 {
-                    List<FloatMenuOption> list = new List<FloatMenuOption>();
-                    list.Add(new FloatMenuOption("CommandSelfDyeingOverridngAlwaysLabel".Translate(), delegate ()
+                    if (ReorderableWidget.Dragging) return;
+                    List<FloatMenuOption> list = new List<FloatMenuOption>
                     {
-                        overrideMode = OverrideMode.Always;
-                    }, (Thing)null, Color.white));
-                    list.Add(new FloatMenuOption("CommandSelfDyeingOverridingRequiredLabel".Translate(), delegate ()
-                    {
-                        overrideMode = OverrideMode.Required;
-                    }, (Thing)null, Color.white));
-                    list.Add(new FloatMenuOption("CommandSelfDyeingOverridingNeverLabel".Translate(), delegate ()
-                    {
-                        overrideMode = OverrideMode.Never;
-                    }, (Thing)null, Color.white));
+                        new FloatMenuOption("CommandSelfDyeingOverridngAlwaysLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            overrideMode = OverrideMode.Always;
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingOverridingRequiredLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            overrideMode = OverrideMode.Required;
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingOverridingNeverLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            overrideMode = OverrideMode.Never;
+                        }, (Thing)null, Color.white)
+                    };
                     Find.WindowStack.Add(new FloatMenu(list));
                 };
-                //Checkbox(inrect, "CommandSelfDyeingOverridingToggleLabel".Translate() + ": " + (overriding ? "SelfDyeingEnabled".Translate() : "SelfDyeingDisabled".Translate())
-                //    , ref overriding
-                //    , overriding ? "CommandSelfDyeingOverridingToggleDescActive".Translate() + "\n\n" + "CommandSelfDyeingOverridingNote".Translate()
-                //        : "CommandSelfDyeingOverridingToggleDescInactive".Translate() + "\n\n" + "CommandSelfDyeingOverridingNote".Translate()
-                //    );
             }
             top += pic_in;
 
@@ -276,9 +281,6 @@ namespace SelfDyeing
         //
         void AddPatternMenu(Rect rect, ref int top)
         {
-            //if (patterns.Count > 0 && patterns[patterns.Count - 1].Empty)
-            //    return;
-            //
             if (patterns.Count > 0)
             {
                 top += b_pre_line;
@@ -288,37 +290,38 @@ namespace SelfDyeing
             //
             if(ActionLabel(new Rect(rect.x, top, rect.width, pic_in), "CommandSelfDyeingAddPatternLabel".Translate(), ""))
             {
+                if (ReorderableWidget.Dragging) return;
                 patterns.Add(new ColorPattern());
             };
             top += pic_in;
         }
         //
-        void PatternList(Rect rect, ref int top)
+        void PatternList(Rect rect, ref int top, ref int _listId)
         {
             var inrect = new Rect(rect.x + pic_out, rect.y, rect.width - pic_out, pic_in);
+
+            if (Event.current.type == EventType.Repaint)
+            {
+                _listId = ReorderableWidget.NewGroup(
+                    delegate (int from, int to) 
+                    {
+                        if (to == patterns.Count) to -= 1;
+                        (patterns[from], patterns[to]) = (patterns[to], patterns[from]);
+                    },
+                    ReorderableDirection.Vertical, new Rect(rect.x, top + pic_out, rect.width, rect.height));
+            }
+
             for (int patternidx = 0; patternidx < patterns.Count; patternidx++)
             {
+                int p_height = 0;
                 if (patternidx > 0)
                 {
-                    top += b_pre_line;
+                    p_height += b_pre_line;
                     Widgets.DrawLineHorizontal(rect.x, top, rect.width);
-                    top += b_line;
-                }
-                if (patternidx > 0 && Widgets.ButtonImage(new Rect(rect.x, top, pic_in, pic_in), TexButton.ReorderUp))
-                {
-                    var tmp = patterns[patternidx];
-                    patterns[patternidx] = patterns[patternidx - 1];
-                    patterns[patternidx - 1] = tmp;
-                    SoundDefOf.Tick_High.PlayOneShotOnCamera(null);
+                    p_height += b_line;
                 }
 
-                if (patternidx < patterns.Count - 1 && Widgets.ButtonImage(new Rect(rect.x, top + pic_in, pic_in, pic_in), TexButton.ReorderDown))
-                {
-                    var tmp = patterns[patternidx];
-                    patterns[patternidx] = patterns[patternidx + 1];
-                    patterns[patternidx + 1] = tmp;
-                    SoundDefOf.Tick_Low.PlayOneShotOnCamera(null);
-                }
+                GUI.DrawTexture(new Rect(rect.x, top + p_height, pic_in, pic_in), Dialog_ColorPatterns_Tex.DragButton);
 
                 ColorPattern pattern = patterns[patternidx];
                 string label;
@@ -338,49 +341,57 @@ namespace SelfDyeing
                 else
                     label = "CommandSelfDyeingPatternColorCustomLabel".Translate();
                 //
-                if (ActionLabel(new Rect(inrect.x, top, inrect.width / 3, inrect.height), "CommandSelfDyeingPatternColorLabel".Translate() + ": " + label))
+                if (ActionLabel(new Rect(inrect.x, top + p_height, inrect.width / 3, inrect.height), "CommandSelfDyeingPatternColorLabel".Translate() + ": " + label))
                 {
-                    List<FloatMenuOption> list = new List<FloatMenuOption>();
-                    list.Add(new FloatMenuOption("CommandSelfDyeingPatternColorPrimaryLabel".Translate(), delegate ()
+                    if (ReorderableWidget.Dragging) return;
+                    List<FloatMenuOption> list = new List<FloatMenuOption>
                     {
-                        pattern.color = null;
-                        pattern.coloringMode = ColoringMode.Primary;
-                    }, (Thing)null, Color.white));
-                    list.Add(new FloatMenuOption("CommandSelfDyeingPatternColorSecondaryLabel".Translate(), delegate ()
-                    {
-                        pattern.color = null;
-                        pattern.coloringMode = ColoringMode.Secondary;
-                    }, (Thing)null, Color.white));
-                    list.Add(new FloatMenuOption("CommandSelfDyeingPatternColorCustomLabel".Translate(), delegate ()
-                    {
-                        pattern.color = AllColors[0];
-                        pattern.coloringMode = ColoringMode.None;
-                    }, (Thing)null, Color.white));
-                    list.Add(new FloatMenuOption("CommandSelfDyeingPatternColorNoneLabel".Translate(), delegate ()
-                    {
-                        pattern.color = null;
-                        pattern.coloringMode = ColoringMode.None;
-                    }, (Thing)null, Color.white));
+                        new FloatMenuOption("CommandSelfDyeingPatternColorPrimaryLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            pattern.color = null;
+                            pattern.coloringMode = ColoringMode.Primary;
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingPatternColorSecondaryLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            pattern.color = null;
+                            pattern.coloringMode = ColoringMode.Secondary;
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingPatternColorCustomLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            pattern.color = AllColors[0];
+                            pattern.coloringMode = ColoringMode.None;
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingPatternColorNoneLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            pattern.color = null;
+                            pattern.coloringMode = ColoringMode.None;
+                        }, (Thing)null, Color.white)
+                    };
                     Find.WindowStack.Add(new FloatMenu(list));
                 }
                 // delete button
-                if (PicRightActionLabel(new Rect(inrect.x + inrect.width / 3 * 2, top, inrect.width / 3, inrect.height), "CommandSelfDyeingPatternDelete".Translate()))
+                if (PicRightActionLabel(new Rect(inrect.x + inrect.width / 3 * 2, top + p_height, inrect.width / 3, inrect.height), "CommandSelfDyeingPatternDelete".Translate()))
                 {
+                    if (ReorderableWidget.Dragging) return;
                     patterns.Remove(pattern);
                 }
                 // color picker
-                top += pic_in;
+                p_height += pic_in;
                 if (pattern.color != null)
                 {
                     Color tmp = pattern.color.Value;
                     int colorLines = (1 + AllColors.Count / ((int)inrect.width / col_pic_in));
-                    top += col_pic_sep;
-                    Rect cpRect = new Rect(inrect.x, top, inrect.width, colorLines * col_pic_in + colorLines * 2);
-                    if (Widgets.ColorSelector(cpRect, ref tmp, allColors, out var h))
+                    p_height += col_pic_sep;
+                    Rect cpRect = new Rect(inrect.x, top + p_height, inrect.width, colorLines * col_pic_in + colorLines * 2);
+                    if (!ReorderableWidget.Dragging &&  Widgets.ColorSelector(cpRect, ref tmp, allColors, out var h))
                     {
                         pattern.color = tmp;
                     }
-                    top += col_pic_in * colorLines + colorLines * 2;
+                    p_height += col_pic_in * colorLines + colorLines * 2;
                 }
                 //
                 int i = 0;
@@ -389,20 +400,34 @@ namespace SelfDyeing
                 for (var outfitidx = 0; outfitidx < pattern.Outfits.Count; outfitidx ++)
                 {
                     var outfit = pattern.Outfits[outfitidx];
-                    rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + pic_in * (i / 3), inrect.width / 3, pic_in);
-                    if (PicLeftActionLabel(rulerect, "Outfit".Translate() + ": " + outfit.label))
+                    rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + p_height + pic_in * (i / 3), inrect.width / 3, pic_in);
+                    if (PicLeftActionLabel(rulerect, "SelfDyeingListItemLabel".Translate("SelfDyeingPawnOutfitShort".Translate(), outfit.label)))
                     {
+                        if (ReorderableWidget.Dragging) return;
                         pattern.Outfits.Remove(outfit);
                     }
                     i++;      
+                }
+                //apparel outfits
+                for (var outfitidx = 0; outfitidx < pattern.AOutfits.Count; outfitidx++)
+                {
+                    var aoutfit = pattern.AOutfits[outfitidx];
+                    rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + p_height + pic_in * (i / 3), inrect.width / 3, pic_in);
+                    if (PicLeftActionLabel(rulerect, "SelfDyeingListItemLabel".Translate("SelfDyeingApparelOutfitShort".Translate(), aoutfit.label)))
+                    {
+                        if (ReorderableWidget.Dragging) return;
+                        pattern.AOutfits.Remove(aoutfit);
+                    }
+                    i++;
                 }
                 // layers
                 for (var layeridx = 0; layeridx < pattern.Layers.Count; layeridx++)
                 {
                     var layer = pattern.Layers[layeridx];
-                    rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + pic_in * (i / 3), inrect.width / 3, pic_in);
-                    if (PicLeftActionLabel(rulerect, "Layer".Translate() + ": " + layer.label.CapitalizeFirst()))
+                    rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + p_height + pic_in * (i / 3), inrect.width / 3, pic_in);
+                    if (PicLeftActionLabel(rulerect, "SelfDyeingListItemLabel".Translate("SelfDyeingApparelLayerShort".Translate(), layer.label.CapitalizeFirst())))
                     {
+                        if (ReorderableWidget.Dragging) return;
                         pattern.Layers.Remove(layer);
                     }
                     i++;
@@ -412,40 +437,72 @@ namespace SelfDyeing
                 for(var groupidx = 0; groupidx < pattern.BodyPartGroups.Count; groupidx++)
                 {
                     var group = pattern.BodyPartGroups[groupidx];
-                    rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + pic_in * (i / 3), inrect.width / 3, pic_in);
-                    if (PicLeftActionLabel(rulerect, "CommandSelfDyeingBodyPartGroupLabel".Translate() + ": " + group.label.CapitalizeFirst()))
+                    rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + p_height + pic_in * (i / 3), inrect.width / 3, pic_in);
+                    if (PicLeftActionLabel(rulerect, "SelfDyeingListItemLabel".Translate("SelfDyeingApparelBodyPartShort".Translate(), group.label.CapitalizeFirst())))
                     {
+                        if (ReorderableWidget.Dragging) return;
                         pattern.BodyPartGroups.Remove(group);
                     }
                     i++;
                 }
                 //
-                rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + pic_in * (i / 3), inrect.width / 3, pic_in);
+                rulerect = new Rect(inrect.x + inrect.width / 3 * (i % 3), top + p_height + pic_in * (i / 3), inrect.width / 3, pic_in);
                 if (ActionLabel(rulerect, "CommandSelfDyeingAddRuleLabel".Translate()))
                 {
-                    List<FloatMenuOption> list = new List<FloatMenuOption>();
-                    foreach(var outfit in Current.Game.outfitDatabase.AllOutfits)
-                        list.Add(new FloatMenuOption("Outfit".Translate() + ": " + outfit.label, delegate ()
+                    if (ReorderableWidget.Dragging) return;
+                    var list = new List<FloatMenuOption>
+                    {
+                        new FloatMenuOption("SelfDyeingPawnOutfitLabel".Translate(), delegate ()
                         {
-                            pattern.Outfits.Add(outfit);
-                        }, (Thing)null, Color.white));
+                            var sublist = new List<FloatMenuOption>();
+                            foreach (var outfit in Current.Game.outfitDatabase.AllOutfits)
+                                sublist.Add(new FloatMenuOption(outfit.label, delegate ()
+                                {
+                                    pattern.Outfits.Add(outfit);
+                                }, (Thing)null, Color.white));
+                            Find.WindowStack.Add(new FloatMenu(sublist, "SelfDyeingPawnOutfitLabel".Translate()));
+                        }),
+                        new FloatMenuOption("SelfDyeingApparelOutfitLabel".Translate(), delegate ()
+                        {
+                            var sublist = new List<FloatMenuOption>();
+                            foreach (var aoutfit in Current.Game.outfitDatabase.AllOutfits)
+                                sublist.Add(new FloatMenuOption(aoutfit.label, delegate ()
+                                {
+                                    pattern.AOutfits.Add(aoutfit);
+                                }, (Thing)null, Color.white));
+                            Find.WindowStack.Add(new FloatMenu(sublist, "SelfDyeingApparelOutfitLabel".Translate()));
+                        }),
+                        new FloatMenuOption("SelfDyeingApparelLayerLabel".Translate(), delegate ()
+                        {
+                            var sublist = new List<FloatMenuOption>();
+                            foreach (var layer in DefDatabase<ApparelLayerDef>.AllDefsListForReading)
+                                sublist.Add(new FloatMenuOption(layer.label.CapitalizeFirst(), delegate ()
+                                {
+                                    pattern.Layers.Add(layer);
+                                }, (Thing)null, Color.white));
+                            Find.WindowStack.Add(new FloatMenu(sublist, "SelfDyeingApparelLayerLabel".Translate()));
+                        }),
+                        new FloatMenuOption("SelfDyeingApparelBodyPartLabel".Translate(), delegate ()
+                        {
+                            var sublist = new List<FloatMenuOption>();
+                            foreach (var group in DefDatabase<BodyPartGroupDef>.AllDefsListForReading.Where(x => x.listOrder > 0))
+                                sublist.Add(new FloatMenuOption(group.label.CapitalizeFirst(), delegate ()
+                                {
+                                    pattern.BodyPartGroups.Add(group);
+                                }, (Thing)null, Color.white));
+                            Find.WindowStack.Add(new FloatMenu(sublist, "SelfDyeingApparelBodyPartLabel".Translate()));
+                        }),
+                    };
                     //
-                    foreach(var layer in DefDatabase<ApparelLayerDef>.AllDefsListForReading)
-                        list.Add(new FloatMenuOption("Layer".Translate() + ": " + layer.label.CapitalizeFirst(), delegate ()
-                        {
-                            pattern.Layers.Add(layer);
-                        }, (Thing)null, Color.white));
-                    //
-                    foreach (var group in DefDatabase<BodyPartGroupDef>.AllDefsListForReading.Where(x => x.listOrder > 0))
-                        list.Add(new FloatMenuOption("CommandSelfDyeingBodyPartGroupLabel".Translate() + ": " + group.label.CapitalizeFirst(), delegate ()
-                        {
-                            pattern.BodyPartGroups.Add(group);
-                        }, (Thing)null, Color.white));
                     Find.WindowStack.Add(new FloatMenu(list));
+
+
                 };
                 /*p1*/
-                top += pic_in * (1 + (i / 3));
-                //Log.Message($"top={top}");
+                p_height += pic_in * (1 + (i / 3));
+                ReorderableWidget.Reorderable(_listId, new Rect(rect.x, top, rect.width, p_height - 1), false, true);
+                //if (ReorderableWidget.Dragging && ReorderableWidget.)  Widgets.DrawHighlight(rect);
+                top += p_height;
             }
         }
         //
@@ -464,7 +521,6 @@ namespace SelfDyeing
                 }
             }
             //
-            //Log.Message($"newtop={i}");
             return i;
         }
         //
@@ -488,16 +544,19 @@ namespace SelfDyeing
                 viewRect.width -= 20f;
                 viewRect.height = PatternsSubelementHeight(viewRect.width - pic_out);
                 Widgets.BeginScrollView(scrollRect, ref scrollbar, viewRect);
-                PatternList(viewRect, ref top);
+                PatternList(viewRect, ref top, ref listId);
                 AddPatternMenu(viewRect, ref top);
                 Widgets.EndScrollView();
+
             }
             if (Widgets.ButtonText(new Rect(inRect.x, inRect.y + inRect.height - 40f, 200f, 40f), "Cancel".Translate()))
             {
+                if (ReorderableWidget.Dragging) return;
                 Close();
             }
             if (Widgets.ButtonText(new Rect(inRect.x + inRect.width - 200f, inRect.y + inRect.height - 40f, 200f, 40f), "Accept".Translate()))
             {
+                if (ReorderableWidget.Dragging) return;
                 Comp.Active = active;
                 Comp.IdeoColor = ideo;
                 Comp.PaintMode = mode;
