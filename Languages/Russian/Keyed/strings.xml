@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-	<CommandSelfDyeingToggleLabel>Покраситься</CommandSelfDyeingToggleLabel>
+	<CommandSelfDyeingToggleLabel>Самопокраска</CommandSelfDyeingToggleLabel>
 	<CommandSelfDyeingToggleDescActive>Включено — поселенцы будут окрашивать свою одежду самостоятельно.</CommandSelfDyeingToggleDescActive>
 	<CommandSelfDyeingToggleDescInactive>Отключено — поселенцы не будут окрашивать свою одежду самостоятельно.</CommandSelfDyeingToggleDescInactive>
 	
@@ -27,6 +27,7 @@
 	<CommandSelfDyeingPatternsToggleLabel>Шаблоны окрашивания</CommandSelfDyeingPatternsToggleLabel>
 	<CommandSelfDyeingPatternsToggleDescActive>Включено — окрашивать одежду согласно шаблонам окрашивания.</CommandSelfDyeingPatternsToggleDescActive>
 	<CommandSelfDyeingPatternsToggleDescInactive>Отключено — не использовать шаблоны окрашивания.</CommandSelfDyeingPatternsToggleDescInactive>
+	<CommandSelfDyeingPatternsToggleDesc>Если опции "шаблоны" и "Самопокраска" включны вместе, опция "шаблоны" будет иметь приоритет над второй опцией.</CommandSelfDyeingPatternsToggleDesc>
 	
 	<SelfDyeingEnabled>Включено</SelfDyeingEnabled>
 	<SelfDyeingDisabled>Отключено</SelfDyeingDisabled>

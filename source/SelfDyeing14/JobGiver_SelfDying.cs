@@ -107,7 +107,7 @@ namespace SelfDyeing
             }
             //
             var comp = Current.Game.GetComponent<GameComponent_SelfDyeing>();
-            if (comp == null || !comp.Active)
+            if (comp == null || !comp.Active && !comp.UsePatterns)
                 return null;
             //
             if (Find.TickManager.TicksGame < pawn.style.nextStyleChangeAttemptTick)
@@ -135,6 +135,8 @@ namespace SelfDyeing
             Apparel apparel = getToDye(ref applist, pawn, thoughtpresent, comp, out primary);
             if (apparel == null)
             {
+                if (!comp.Active) //auto-color disabled and patterns returned nothing
+                    return null;
                 switch (comp.PaintMode)
                 {
                     case PaintMode.Full:

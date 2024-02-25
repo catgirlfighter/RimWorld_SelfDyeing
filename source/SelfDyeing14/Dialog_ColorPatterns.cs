@@ -64,7 +64,7 @@ namespace SelfDyeing
             ideo = Comp.IdeoColor;
             mode = Comp.PaintMode;
             overrideMode = Comp.OverrideMode;
-            usepatterns = Comp.UsePatterns;
+            usePatterns = Comp.UsePatterns;
             patterns = new List<ColorPattern>();
             foreach (var pattern in Comp.Patterns)
             {
@@ -158,7 +158,7 @@ namespace SelfDyeing
         private bool ideo;
         private PaintMode mode;
         private OverrideMode overrideMode;
-        private bool usepatterns;
+        private bool usePatterns;
         private List<ColorPattern> patterns;
 
         void Toggles(Rect rect, ref int top)
@@ -170,69 +170,12 @@ namespace SelfDyeing
                 , active ? "CommandSelfDyeingToggleDescActive".Translate() : "CommandSelfDyeingToggleDescInactive".Translate()
                 );
             //
+            string label;
+            string desc;
             if (active)
             {
                 inrect.x += inrect.width;
-                Checkbox(inrect, "CommandSelfDyeingIdeoToggleLabel".Translate() + ": " + (ideo ? "SelfDyeingPrimary".Translate() : "SelfDyeingSecondary".Translate())
-                    , ref ideo
-                    , ideo ? "CommandSelfDyeingIdeoToggleDescActive".Translate() : "CommandSelfDyeingIdeoToggleDescInactive".Translate()
-                    );
-                //
-                inrect.x += inrect.width;
-                string label;
-                string desc;
-                switch (mode)
-                {
-                    case PaintMode.Full:
-                        label = "CommandSelfDyeingFullLabel".Translate();
-                        desc = "CommandSelfDyeingFullDesc".Translate();
-                        break;
-                    case PaintMode.TwoColor:
-                        label = "CommandSelfDyeingTwoColorLabel".Translate();
-                        desc = "CommandSelfDyeingTwoColorDesc".Translate();
-                        break;
-                    default:
-                        label = "CommandSelfDyeingPartialLabel".Translate();
-                        desc = "CommandSelfDyeingPartialDesc".Translate();
-                        break;
-                }
-                //
-                if (ActionLabel(inrect, "CommandSelfDyeingModeLabel".Translate() + ": " + label, desc))
-                {
-                    if (ReorderableWidget.Dragging) return;
-                    List<FloatMenuOption> list = new List<FloatMenuOption>
-                    {
-                        new FloatMenuOption("CommandSelfDyeingPartialLabel".Translate(), delegate ()
-                        {
-                            if (ReorderableWidget.Dragging) return;
-                            mode = PaintMode.Partial;
-                        }, (Thing)null, Color.white),
-                        new FloatMenuOption("CommandSelfDyeingFullLabel".Translate(), delegate ()
-                        {
-                            if (ReorderableWidget.Dragging) return;
-                            mode = PaintMode.Full;
-                        }, (Thing)null, Color.white),
-                        new FloatMenuOption("CommandSelfDyeingTwoColorLabel".Translate(), delegate ()
-                        {
-                            if (ReorderableWidget.Dragging) return;
-                            mode = PaintMode.TwoColor;
-                        }, (Thing)null, Color.white)
-                    };
-                    Find.WindowStack.Add(new FloatMenu(list));
-                };
-                //
-                top += pic_in;
-                inrect.x = rect.x;
-                inrect.y = top;
-                //
-                inrect.x = inrect.x;
-                Checkbox(inrect, "CommandSelfDyeingPatternsToggleLabel".Translate() + ": " + (usepatterns ? "SelfDyeingEnabled".Translate() : "SelfDyeingDisabled".Translate())
-                    , ref usepatterns
-                    , usepatterns ? "CommandSelfDyeingPatternsToggleDescActive".Translate() : "CommandSelfDyeingPatternsToggleDescInactive".Translate()
-                    );
-                //
-                inrect.x += inrect.width;
-                //
+                // overriding option
                 switch (overrideMode)
                 {
                     case OverrideMode.Always:
@@ -248,9 +191,7 @@ namespace SelfDyeing
                         desc = "CommandSelfDyeingOverridingNeverDesc".Translate();
                         break;
                 }
-
                 desc += "\n\n" + "CommandSelfDyeingOverridingNote".Translate();
-
                 if (ActionLabel(inrect, "CommandSelfDyeingOverridingToggleLabel".Translate() + ": " + label, desc))
                 {
                     if (ReorderableWidget.Dragging) return;
@@ -274,9 +215,70 @@ namespace SelfDyeing
                     };
                     Find.WindowStack.Add(new FloatMenu(list));
                 };
+                //
+                inrect.x += inrect.width;
+                // dyeing mode option
+                switch (mode)
+                {
+                    case PaintMode.Full:
+                        label = "CommandSelfDyeingFullLabel".Translate();
+                        desc = "CommandSelfDyeingFullDesc".Translate();
+                        break;
+                    case PaintMode.TwoColor:
+                        label = "CommandSelfDyeingTwoColorLabel".Translate();
+                        desc = "CommandSelfDyeingTwoColorDesc".Translate();
+                        break;
+                    default:
+                        label = "CommandSelfDyeingPartialLabel".Translate();
+                        desc = "CommandSelfDyeingPartialDesc".Translate();
+                        break;
+                }
+                if (ActionLabel(inrect, "CommandSelfDyeingModeLabel".Translate() + ": " + label, desc))
+                {
+                    if (ReorderableWidget.Dragging) return;
+                    List<FloatMenuOption> list = new List<FloatMenuOption>
+                    {
+                        new FloatMenuOption("CommandSelfDyeingPartialLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            mode = PaintMode.Partial;
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingFullLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            mode = PaintMode.Full;
+                        }, (Thing)null, Color.white),
+                        new FloatMenuOption("CommandSelfDyeingTwoColorLabel".Translate(), delegate ()
+                        {
+                            if (ReorderableWidget.Dragging) return;
+                            mode = PaintMode.TwoColor;
+                        }, (Thing)null, Color.white)
+                    };
+                    Find.WindowStack.Add(new FloatMenu(list));
+                };
+            }
+            //
+            top += pic_in;
+            inrect.x = rect.x;
+            inrect.y = top;
+            //
+            inrect.x = inrect.x;
+            Checkbox(inrect, "CommandSelfDyeingPatternsToggleLabel".Translate() + ": " + (usePatterns ? "SelfDyeingEnabled".Translate() : "SelfDyeingDisabled".Translate())
+                , ref usePatterns
+                , (usePatterns ? "CommandSelfDyeingPatternsToggleDescActive".Translate() : "CommandSelfDyeingPatternsToggleDescInactive".Translate())
+                + " " + "CommandSelfDyeingPatternsToggleDesc".Translate()
+                );
+            //
+            if (active || usePatterns)
+            {
+                inrect.x += inrect.width;
+                //ideo switch
+                Checkbox(inrect, "CommandSelfDyeingIdeoToggleLabel".Translate() + ": " + (ideo ? "SelfDyeingPrimary".Translate() : "SelfDyeingSecondary".Translate())
+                    , ref ideo
+                    , ideo ? "CommandSelfDyeingIdeoToggleDescActive".Translate() : "CommandSelfDyeingIdeoToggleDescInactive".Translate()
+                    );
             }
             top += pic_in;
-
         }
         //
         void AddPatternMenu(Rect rect, ref int top)
@@ -528,7 +530,7 @@ namespace SelfDyeing
         {
             int top = 0;
             Toggles(inRect, ref top);
-            if (active && usepatterns)
+            if (usePatterns)
             {
                 Rect scrollRect = new Rect(inRect);
                 top += 4;
@@ -561,7 +563,7 @@ namespace SelfDyeing
                 Comp.IdeoColor = ideo;
                 Comp.PaintMode = mode;
                 Comp.OverrideMode = overrideMode;
-                Comp.UsePatterns = usepatterns;
+                Comp.UsePatterns = usePatterns;
                 Comp.Patterns.Clear();
                 Comp.Patterns.AddRange(patterns);
                 Close();

@@ -26,6 +26,7 @@
 	<CommandSelfDyeingPatternsToggleLabel>Coloring Patterns</CommandSelfDyeingPatternsToggleLabel>
 	<CommandSelfDyeingPatternsToggleDescActive>Enabled - dye apparel according to coloring patterns.</CommandSelfDyeingPatternsToggleDescActive>
 	<CommandSelfDyeingPatternsToggleDescInactive>Disabled - do not use coloring patterns.</CommandSelfDyeingPatternsToggleDescInactive>
+	<CommandSelfDyeingPatternsToggleDesc>If both "patterns" and "dye self" options are enabled, "patterns" will have a priority over latter.</CommandSelfDyeingPatternsToggleDesc>
 	
 	<SelfDyeingEnabled>Enabled</SelfDyeingEnabled>
 	<SelfDyeingDisabled>Disabled</SelfDyeingDisabled>

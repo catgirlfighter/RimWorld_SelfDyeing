@@ -26,6 +26,7 @@
 	<CommandSelfDyeingPatternsToggleLabel>染色方案</CommandSelfDyeingPatternsToggleLabel>
 	<CommandSelfDyeingPatternsToggleDescActive>開啟 - 會根據設置的染色方案自動染色</CommandSelfDyeingPatternsToggleDescActive>
 	<CommandSelfDyeingPatternsToggleDescInactive>關閉 - 不使用染色方案</CommandSelfDyeingPatternsToggleDescInactive>
+	<CommandSelfDyeingPatternsToggleDesc>If both "patterns" and "dye self" options are enabled, "patterns" will have a priority over latter.</CommandSelfDyeingPatternsToggleDesc>
 	
 	<SelfDyeingEnabled>開啟</SelfDyeingEnabled>
 	<SelfDyeingDisabled>關閉</SelfDyeingDisabled>
