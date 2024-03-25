@@ -5,9 +5,9 @@
 	<CommandSelfDyeingToggleDescActive>Включено — поселенцы будут окрашивать свою одежду самостоятельно.</CommandSelfDyeingToggleDescActive>
 	<CommandSelfDyeingToggleDescInactive>Отключено — поселенцы не будут окрашивать свою одежду самостоятельно.</CommandSelfDyeingToggleDescInactive>
 	
-	<CommandSelfDyeingIdeoToggleLabel>Prefer</CommandSelfDyeingIdeoToggleLabel>
-	<CommandSelfDyeingIdeoToggleDescActive>Prefer ideology color. Favorite color is secondary.</CommandSelfDyeingIdeoToggleDescActive>
-	<CommandSelfDyeingIdeoToggleDescInactive>Prefer favorite color. Ideo color is secondary.</CommandSelfDyeingIdeoToggleDescInactive>
+	<CommandSelfDyeingIdeoToggleLabel>Предпочтения</CommandSelfDyeingIdeoToggleLabel>
+	<CommandSelfDyeingIdeoToggleDescActive>Предпочитать цвет идеологии. Любимый цвет поселенца будет вторичным.</CommandSelfDyeingIdeoToggleDescActive>
+	<CommandSelfDyeingIdeoToggleDescInactive>Предпочитать любимый цвет поселенца. Цвет идеологии будет вторичным.</CommandSelfDyeingIdeoToggleDescInactive>
 	
 	<CommandSelfDyeingModeLabel>Режим окрашивания</CommandSelfDyeingModeLabel>
 	<CommandSelfDyeingPartialLabel>Неполный</CommandSelfDyeingPartialLabel>
@@ -33,26 +33,26 @@
 	<SelfDyeingDisabled>Отключено</SelfDyeingDisabled>
 	
 	<CommandSelfDyeingPatternColorLabel>Цвет шаблона</CommandSelfDyeingPatternColorLabel>
-	<CommandSelfDyeingPatternColorPrimaryLabel>Preferred color</CommandSelfDyeingPatternColorPrimaryLabel>
-	<CommandSelfDyeingPatternColorSecondaryLabel>Secondary color</CommandSelfDyeingPatternColorSecondaryLabel>
+	<CommandSelfDyeingPatternColorPrimaryLabel>Основной цвет</CommandSelfDyeingPatternColorPrimaryLabel>
+	<CommandSelfDyeingPatternColorSecondaryLabel>Вторичный цвет</CommandSelfDyeingPatternColorSecondaryLabel>
 	<CommandSelfDyeingPatternColorCustomLabel>Пользовательский</CommandSelfDyeingPatternColorCustomLabel>
-	<CommandSelfDyeingPatternColorNoneLabel>Do not dye</CommandSelfDyeingPatternColorNoneLabel>
+	<CommandSelfDyeingPatternColorNoneLabel>Не окрашивать</CommandSelfDyeingPatternColorNoneLabel>
 	<CommandSelfDyeingPatternDelete>Удалить шаблон</CommandSelfDyeingPatternDelete>
 	<CommandSelfDyeingAddPatternLabel>+ Добавить шаблон</CommandSelfDyeingAddPatternLabel>
-	<SelfDyeingPawnOutfitLabel>Colonist uses Outfilt</SelfDyeingPawnOutfitLabel>
-	<SelfDyeingApparelOutfitLabel>Apparel is part of Outfilt</SelfDyeingApparelOutfitLabel>
-	<SelfDyeingApparelLayerLabel>Apparel has Layer</SelfDyeingApparelLayerLabel>
-	<SelfDyeingApparelBodyPartLabel>Apparel has Body Part</SelfDyeingApparelBodyPartLabel>
+	<SelfDyeingPawnOutfitLabel>Снаряжение поселенца</SelfDyeingPawnOutfitLabel>
+	<SelfDyeingApparelOutfitLabel>Часть снаряжения</SelfDyeingApparelOutfitLabel>
+	<SelfDyeingApparelLayerLabel>Слой снаряжения</SelfDyeingApparelLayerLabel>
+	<SelfDyeingApparelBodyPartLabel>Часть тела укрываемая одеждой</SelfDyeingApparelBodyPartLabel>
 	<CommandSelfDyeingAddRuleLabel>+ Добавить правило шаблона</CommandSelfDyeingAddRuleLabel>
 	
-	<SelfDyeingPawnOutfitShort>C. Outfilt</SelfDyeingPawnOutfitShort>
-	<SelfDyeingApparelOutfitShort>A. Outfilt</SelfDyeingApparelOutfitShort>
-	<SelfDyeingApparelLayerShort>Layer</SelfDyeingApparelLayerShort>
-	<SelfDyeingApparelBodyPartShort>Body Part</SelfDyeingApparelBodyPartShort>
+	<SelfDyeingPawnOutfitShort>Снаряжение поселенца</SelfDyeingPawnOutfitShort>
+	<SelfDyeingApparelOutfitShort>Часть снаряжения</SelfDyeingApparelOutfitShort>
+	<SelfDyeingApparelLayerShort>Слой</SelfDyeingApparelLayerShort>
+	<SelfDyeingApparelBodyPartShort>Часть тела</SelfDyeingApparelBodyPartShort>
 	<SelfDyeingListItemLabel>{0}: {1}</SelfDyeingListItemLabel>
 	
-	<SelfDyeingPrimary>Ideo Color</SelfDyeingPrimary>
-	<SelfDyeingSecondary>Favorite Color</SelfDyeingSecondary>
+	<SelfDyeingPrimary>Цвет идеологии</SelfDyeingPrimary>
+	<SelfDyeingSecondary>Любимый цвет</SelfDyeingSecondary>
 	
 	<CommandSelfDyeingOverridngAlwaysLabel>Всегда</CommandSelfDyeingOverridngAlwaysLabel>
 	<CommandSelfDyeingOverridingAlwaysDesc>Всегда — поселенцы будут игнорировать факт присутствия у одежды неактивной окраски.</CommandSelfDyeingOverridingAlwaysDesc>
