@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationConditional">
+		<success>Always</success>
+		<xpath>Defs/ThingDef[defName = "StylingStation"]/comps</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName = "StylingStation"]/comps</xpath>
+			<value><li Class="SelfDyeing.CompProperties_SelfDyeing" /></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName = "StylingStation"]</xpath>
+			<value><comps><li Class="SelfDyeing.CompProperties_SelfDyeing" /></comps></value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationConditional">
+		<success>Always</success>
+		<xpath>Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot[@Class="ThinkNode_Priority"]/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_ConditionalWantsLookChange"]</xpath>
+		<match Class="PatchOperationInsert">
+			<xpath>Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot[@Class="ThinkNode_Priority"]/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_ConditionalWantsLookChange"]</xpath>
+			<value><li MayRequire="Ludeon.RimWorld.Ideology" Class="SelfDyeing.JobGiver_SelfDyeing" /></value>
+		</match>
+	</Operation>
+<!--
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/ThinkTreeDef[defName="Humanlike"]/thinkRoot[@Class="ThinkNode_Priority"]/subNodes/li[@Class="ThinkNode_ConditionalColonist"]/subNodes/li[@Class="ThinkNode_ConditionalWantsLookChange"]</xpath>
+		<value><li MayRequire="Ludeon.RimWorld.Ideology" Class="SelfDyeing.JobGiver_SelfDyeing" /></value>
+	</Operation>
+-->
+</Patch>
